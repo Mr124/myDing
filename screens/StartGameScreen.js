@@ -3,42 +3,20 @@ import {
   View,
   StyleSheet,
   Text,
-  TextInput,
   Button,
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
-import Card from "../components/Card";
 import Colors from "../constants/colors";
-import Input from "../components/Input";
-import NumberContainer from "../components/NumberContainer";
 import DescriptionText from "../components/DescriptionText";
 import FillerText from "../components/FillerText";
 import TaggingPic from "../components/TaggingPic";
 
-const StartGameScreen = (props) => {
-  const [enteredValue, setEnteredValue] = useState("");
-  const [confirmed, setConfirmed] = useState(false);
-  const [selectedNumber, setSelectedNumber] = useState();
+const StartGameScreen = ({navigation}) => {
 
-  const numberInputHandler = (inputText) => {
-    setEnteredValue(inputText.replace(/[^0-9]/g), "");
-  };
-
-  const resetInputHandler = () => {
-    setEnteredValue("");
-    setConfirmed(false);
-  };
-
-  const confirmInputHandler = () => {
-    const chosenNumber = parseInt(enteredValue);
-    if (chosenNumber === NaN || chosenNumber <= 0 || chosenNumber > 99) {
-      return;
-    }
-    setConfirmed(true);
-    setSelectedNumber(chosenNumber);
-    setEnteredValue("");
-  };
+  const pressHandler = () => {
+    navigation.navigate("SecondScreen");
+  }
 
   return (
     <TouchableWithoutFeedback
@@ -54,7 +32,7 @@ const StartGameScreen = (props) => {
           <View style={styles.button}>
             <Button
               title="Kostenlos bestellen!"
-              onPress={resetInputHandler}
+              onPress={pressHandler}
               color={Colors.desText}
             />
           </View>

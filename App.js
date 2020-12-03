@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Subheader from "./components/Subheader";
 import StartGameScreen from './screens/StartGameScreen';
 import SecondScreen from "./screens/SecondScreen";
-
+import Navigator from "./routes/homeStack";
 
 export default function App() {
   const [userNumber, setUserNumber] = useState();
@@ -13,7 +13,7 @@ export default function App() {
     setUserNumber(selectedNumber);
   };
 
-  let content = <StartGameScreen onStartGame={startGameHandler} />;
+  let content = <Navigator />;
 
   if(userNumber) {
     content = <SecondScreen userChoice={userNumber}/>;
