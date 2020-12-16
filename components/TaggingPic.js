@@ -5,7 +5,7 @@ import Colors from "../constants/colors";
 const TaggingPic = props => {
     return (
         <View style={styles.fillText}> 
-            <Text style={styles.fillTitle}>{props.title}</Text>
+            <Text style={styles.fillTitle}>Tag sie doch!!!</Text>
             <Image stlye={styles.tag} source={require("../assets/QR.png")} />
         </View>
     )
