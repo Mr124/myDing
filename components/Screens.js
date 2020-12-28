@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
     alignItems: "center",
-    flex:1
+    flex: 1,
   },
   button: {
     paddingHorizontal: 20,
@@ -77,16 +77,16 @@ const styles = StyleSheet.create({
     color: "blue",
     backgroundColor: "red",
   },
-  forms: { 
-    height: 25, 
-    borderColor: "black", 
+  forms: {
+    height: 25,
+    borderColor: "black",
     borderWidth: 1,
     width: 300,
     paddingLeft: 5,
-    backgroundColor: "white"
+    backgroundColor: "white",
   },
   padding: {
-    fontSize: 3
+    fontSize: 3,
   },
 });
 
@@ -146,35 +146,35 @@ export const Bestellen = ({ navigation }) => {
         </View>
         <View style={styles.fillText}>
           <View>
-          <TextInput
-            style={styles.forms}
-            onChangeText={(text) => onChangeText(text)}
-            value={"Vorname"}
-          />
-          <Text style={styles.padding}> </Text>
-          <TextInput
-            style={styles.forms}
-            onChangeText={(text) => onChangeText(text)}
-            value={"Nachname"}
-          />
-          <Text style={styles.padding}> </Text>
-          <TextInput
-            style={styles.forms}
-            onChangeText={(text) => onChangeText(text)}
-            value={"Straße"}
-          />
-          <Text style={styles.padding}> </Text>
-          <TextInput
-            style={styles.forms}
-            onChangeText={(text) => onChangeText(text)}
-            value={"Postleitzahl"}
-          />
-          <Text style={styles.padding}> </Text>
-          <TextInput
-            style={styles.forms}
-            onChangeText={(text) => onChangeText(text)}
-            value={"Ort"}
-          />
+            <TextInput
+              style={styles.forms}
+              onChangeText={(text) => onChangeText(text)}
+              value={"Vorname"}
+            />
+            <Text style={styles.padding}> </Text>
+            <TextInput
+              style={styles.forms}
+              onChangeText={(text) => onChangeText(text)}
+              value={"Nachname"}
+            />
+            <Text style={styles.padding}> </Text>
+            <TextInput
+              style={styles.forms}
+              onChangeText={(text) => onChangeText(text)}
+              value={"Straße"}
+            />
+            <Text style={styles.padding}> </Text>
+            <TextInput
+              style={styles.forms}
+              onChangeText={(text) => onChangeText(text)}
+              value={"Postleitzahl"}
+            />
+            <Text style={styles.padding}> </Text>
+            <TextInput
+              style={styles.forms}
+              onChangeText={(text) => onChangeText(text)}
+              value={"Ort"}
+            />
           </View>
         </View>
         <View style={styles.fillText1}>
@@ -182,11 +182,8 @@ export const Bestellen = ({ navigation }) => {
           {/* <Image stlye={styles.tag} source={require("../assets/QR.png")} /> */}
         </View>
         <View style={styles.buttonView}>
-        <Button
-          title="Abschicken!"
-          onPress={() => alert("abgeschickt")}
-        />
-      </View>
+          <Button title="Abschicken!" onPress={() => alert("abgeschickt")} />
+        </View>
       </ScreenContainer>
     </ScrollView>
   );
@@ -201,12 +198,7 @@ export const Photo = () => (
 export const Gallery = () => (
   <ScreenContainer>
     <ScrollView>
-      <Text>
-        hi
-      </Text>
-      <Text>
-        hi
-      </Text>
+      <Text>hi there</Text>
     </ScrollView>
   </ScreenContainer>
 );
