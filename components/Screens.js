@@ -1,13 +1,21 @@
-import React, { Component } from "react";
-import { Button, Text, StyleSheet, View, Image, TextInput } from "react-native";
+import React from "react";
+import {
+  Button,
+  Text,
+  StyleSheet,
+  View,
+  Image,
+  TextInput,
+  ScrollView,
+} from "react-native";
 import Colors from "../constants/colors";
-import { AuthContext } from "./context";
+import ImagePicker from "./ImagePicker";
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    flex:1
   },
   button: {
     paddingHorizontal: 20,
@@ -17,45 +25,46 @@ const styles = StyleSheet.create({
   },
   desText: {
     width: "100%",
-    height: "20%",
+    height: 200,
     backgroundColor: Colors.desText,
     alignItems: "center",
     justifyContent: "center",
   },
   desTitle: {
     color: "black",
-    fontSize: 12,
+    fontSize: 16,
     justifyContent: "center",
     alignItems: "center",
+    textAlign: "center",
   },
   subHeader: {
     width: "100%",
-    height: "6%",
+    height: 100,
     backgroundColor: Colors.accent,
     alignItems: "center",
     justifyContent: "center",
   },
   subHeaderTitle: {
     color: "black",
-    fontSize: 12,
+    fontSize: 20,
   },
   fillText: {
     width: "100%",
-    padding: 10,
+    padding: 50,
     backgroundColor: Colors.fillText,
     alignItems: "center",
     justifyContent: "center",
   },
   fillText1: {
     width: "100%",
-    height: "48%",
+    height: 350,
     backgroundColor: Colors.tag,
     alignItems: "center",
     justifyContent: "center",
   },
   fillTitle1: {
     color: "black",
-    fontSize: 12,
+    fontSize: 24,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -63,137 +72,138 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  buttonView: {
+    width: "100%",
+    color: "blue",
+    backgroundColor: "red",
+  },
+  forms: { 
+    height: 25, 
+    borderColor: "black", 
+    borderWidth: 1,
+    width: 300,
+    paddingLeft: 5,
+    backgroundColor: "white"
+  },
+  padding: {
+    fontSize: 3
+  },
 });
 
 const ScreenContainer = ({ children }) => (
   <View style={styles.container}>{children}</View>
 );
-
-export const SignIn = ({ navigation }) => {
-  return (
-    <ScreenContainer>
-      <View style={styles.desText}>
-        <Text style={styles.desTitle}>
-          "Suchst du ständig die Sachen deiner Kinder? {"\n"}
-          {"\n"}
-          Kostet dich die Suche viel Zeit? {"\n"}
-          {"\n"}Wüsstest du gerne, wem all die Sachen im Kinderzimmer gehören?"
-        </Text>
-      </View>
-      <Text>Sign In Screen</Text>
-      <Button title="Sign In" onPress={() => signIn()} />
-      <Button
-        title="Create Account"
-        onPress={() => navigation.push("CreateAccount")}
-      />
-    </ScreenContainer>
-  );
-};
-
-export const CreateAccount = () => {
-  const { signUp } = React.useContext(AuthContext);
-
-  return (
-    <ScreenContainer>
-      <Text>Create Account Screen</Text>
-      <Button title="Sign Up" onPress={() => signUp()} />
-    </ScreenContainer>
-  );
-};
-
 export const Home = ({ navigation }) => (
-  <ScreenContainer>
-    <Text>Master List Screen12</Text>
-    <View style={styles.subHeader}>
-      <Text style={styles.subHeaderTitle}>Tag - Scan - Find</Text>
-    </View>
-    <View style={styles.desText}>
-      <Text style={styles.desTitle}>
-        "Suchst du ständig die Sachen deiner Kinder? {"\n"}
-        {"\n"}
-        Kostet dich die Suche viel Zeit? {"\n"}
-        {"\n"}Wüsstest du gerne, wem all die Sachen im Kinderzimmer gehören?"
-      </Text>
-    </View>
-    <View style={styles.fillText}>
-      <Text style={styles.fillTitle}>Dann...</Text>
-    </View>
-    <View style={styles.fillText1}>
-      <Text style={styles.fillTitle1}>Tag sie doch!!!</Text>
-      <Image stlye={styles.tag} source={require("../assets/QR.png")} />
-    </View>
-    <Button
-      title="React Native by Example"
-      onPress={() =>
-        navigation.push("Details", { name: "React Native by Example " })
-      }
-    />
-    <Button
-      title="React Native School"
-      onPress={() =>
-        navigation.push("Details", { name: "React Native School" })
-      }
-    />
-    <Button title="Drawer" onPress={() => navigation.toggleDrawer()} />
-  </ScreenContainer>
-);
-
-export const Profile = ({ navigation }) => {
-  return (
+  <ScrollView>
     <ScreenContainer>
       <View style={styles.subHeader}>
         <Text style={styles.subHeaderTitle}>Tag - Scan - Find</Text>
       </View>
       <View style={styles.desText}>
         <Text style={styles.desTitle}>
-          Wir schicken dir 25 kostenlose Tags, mit {"\n"}
+          "Suchst du ständig die Sachen deiner Kinder? {"\n"}
           {"\n"}
-          denen du alle deine Sachen ganz einfach {"\n"}
-          {"\n"}kennzeichnen kannst.
+          Kostet dich die Suche viel Zeit? {"\n"}
+          {"\n"}
+          Wüsstest du gerne, wem {"\n"}
+          {"\n"}
+          all die Sachen im Kinderzimmer gehören?"
         </Text>
       </View>
       <View style={styles.fillText}>
-        <Text style={styles.fillTitle}>Dann...</Text>
-        <TextInput
-          style={{ height: 20, borderColor: "black", borderWidth: 1 }}
-          onChangeText={(text) => onChangeText(text)}
-          value={"Vorname"}
-        />
-        <TextInput
-          style={{ height: 20, borderColor: "black", borderWidth: 1 }}
-          onChangeText={(text) => onChangeText(text)}
-          value={"Nachname"}
-        />
-        <TextInput
-          style={{ height: 20, borderColor: "black", borderWidth: 1 }}
-          onChangeText={(text) => onChangeText(text)}
-          value={"Straße"}
-        />
-        <TextInput
-          style={{ height: 20, borderColor: "black", borderWidth: 1 }}
-          onChangeText={(text) => onChangeText(text)}
-          value={"Postleitzahl"}
-        />
-        <TextInput
-          style={{ height: 20, borderColor: "black", borderWidth: 1 }}
-          onChangeText={(text) => onChangeText(text)}
-          value={"Ort"}
-        />
+        <Text style={styles.fillTitle1}>Dann...</Text>
       </View>
       <View style={styles.fillText1}>
-        <Text style={styles.fillTitle1}>...because we love moms!!!</Text>
-       {/* <Image stlye={styles.tag} source={require("../assets/QR.png")} /> */}
+        <Text></Text>
+        <Text style={styles.fillTitle1}>Tag sie doch!!!</Text>
+        <Text></Text>
+        <Image stlye={styles.tag} source={require("../assets/QR.png")} />
       </View>
-      <Button title="Drawer" onPress={() => navigation.toggleDrawer()} />
-      <Button title="Sign Out" onPress={() => signOut()} />
+      <View style={styles.buttonView}>
+        <Button
+          title="Jetzt bestellen!"
+          onPress={() => navigation.push("Profile2")}
+        />
+      </View>
     </ScreenContainer>
+  </ScrollView>
+);
+
+export const Bestellen = ({ navigation }) => {
+  return (
+    <ScrollView>
+      <ScreenContainer>
+        <View style={styles.subHeader}>
+          <Text style={styles.subHeaderTitle}>Tag - Scan - Find</Text>
+        </View>
+        <View style={styles.desText}>
+          <Text style={styles.desTitle}>
+            Wir schicken dir 25 kostenlose Tags, mit {"\n"}
+            {"\n"}
+            denen du alle deine Sachen ganz einfach {"\n"}
+            {"\n"}kennzeichnen kannst.
+          </Text>
+        </View>
+        <View style={styles.fillText}>
+          <View>
+          <TextInput
+            style={styles.forms}
+            onChangeText={(text) => onChangeText(text)}
+            value={"Vorname"}
+          />
+          <Text style={styles.padding}> </Text>
+          <TextInput
+            style={styles.forms}
+            onChangeText={(text) => onChangeText(text)}
+            value={"Nachname"}
+          />
+          <Text style={styles.padding}> </Text>
+          <TextInput
+            style={styles.forms}
+            onChangeText={(text) => onChangeText(text)}
+            value={"Straße"}
+          />
+          <Text style={styles.padding}> </Text>
+          <TextInput
+            style={styles.forms}
+            onChangeText={(text) => onChangeText(text)}
+            value={"Postleitzahl"}
+          />
+          <Text style={styles.padding}> </Text>
+          <TextInput
+            style={styles.forms}
+            onChangeText={(text) => onChangeText(text)}
+            value={"Ort"}
+          />
+          </View>
+        </View>
+        <View style={styles.fillText1}>
+          <Text style={styles.fillTitle1}>...because we love moms!!!</Text>
+          {/* <Image stlye={styles.tag} source={require("../assets/QR.png")} /> */}
+        </View>
+        <View style={styles.buttonView}>
+        <Button
+          title="Abschicken!"
+          onPress={() => alert("abgeschickt")}
+        />
+      </View>
+      </ScreenContainer>
+    </ScrollView>
   );
 };
 
-export const Photo = ({ navigation }) => {
-  return (
-    <ScreenContainer>
-      <Text>Hier kommt ne Kamera...Klick!</Text>
-    </ScreenContainer>
-  );
-};
+export const Photo = () => (
+  <ScreenContainer>
+    <ImagePicker style={styles.photo} />
+  </ScreenContainer>
+);
+
+export const Gallery = () => (
+  <ScreenContainer>
+    <ScrollView>
+      <Text>
+        hi
+      </Text>
+    </ScrollView>
+  </ScreenContainer>
+);

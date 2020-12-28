@@ -23,15 +23,13 @@ const Header = props => {
             onFinish={()=>setFontsLoaded(true)}
         />)
     }
-
-
 };
 
 const styles = StyleSheet.create({
     header: {
         width: "100%",
         height: "12%",
-        paddingTop: 26,
+        paddingTop: 2,
         backgroundColor: Colors.primary,
         alignItems: "center",
         justifyContent: "center"

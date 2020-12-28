@@ -1,25 +1,29 @@
-import React, {useState} from 'react';
-import { StyleSheet, View } from 'react-native';
-import Header from "./components/Header";
-import Subheader from "./components/Subheader";
-import StartGameScreen from './screens/StartGameScreen';
-import SecondScreen from "./screens/SecondScreen";
+import React from "react";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import ReduxThunk from "redux-thunk";
+import { StyleSheet, View } from "react-native";
+import StartGameScreen from "./screens/StartGameScreen";
+import reducer from "./store/reducer";
+
+const rootRecucer = combineReducers({
+  textInputs: reducer,
+});
+
+const store = createStore(rootRecucer, applyMiddleware(ReduxThunk));
 
 export default function App() {
-
   let content = <StartGameScreen />;
 
   return (
-    <View style={styles.screen}>
-{/*}      <Header title="myDing"/>
-      <Subheader title="Scan - Tag - Find"/> */}
-      {content}
-    </View>
+    <Provider store={store}>
+      <View style={styles.screen}>{content}</View>
+    </Provider>
   );
 }
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1
-  }
+    flex: 1,
+  },
 });
