@@ -204,6 +204,9 @@ export const Gallery = () => (
       <Text>
         hi
       </Text>
+      <Text>
+        hi
+      </Text>
     </ScrollView>
   </ScreenContainer>
 );
