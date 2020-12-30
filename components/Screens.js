@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import Colors from "../constants/colors";
 import ImagePicker from "./ImagePicker";
+import GalleryItem from "./GalleryItem";
 
 const styles = StyleSheet.create({
   container: {
@@ -199,6 +200,7 @@ export const Gallery = () => (
   <ScreenContainer>
     <ScrollView>
       <Text>hi there</Text>
+      <GalleryItem />
     </ScrollView>
   </ScreenContainer>
 );

@@ -56,7 +56,7 @@ const ImgPicker = (props) => {
   };
 
   const saveChangeHandler = () => {
-      dispatch(action.add(titleValue));
+      dispatch(action.addItem(titleValue));
       props.navigation.goBack();
   };
 
