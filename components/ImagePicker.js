@@ -56,8 +56,8 @@ const ImgPicker = (props) => {
   };
 
   const saveChangeHandler = () => {
-      dispatch(action.addItem(titleValue));
-      props.navigation.goBack();
+    /*dispatch(action.addItem(titleValue));*/
+    props.navigation.goBack();
   };
 
   return (
@@ -80,12 +80,13 @@ const ImgPicker = (props) => {
           onChangeText={titleChangeHandler}
           value={titleValue}
         />
-        <Button
-          title="Objekt speichern"
-          color={colors.primary}
-          onPress={saveChangeHandler}
-        />
       </View>
+      <Button
+        title="Test Button"
+        color={colors.primary}
+        /*onPress={saveChangeHandler}*/
+        onPress={()=> alert("hi")}
+      />
     </View>
   );
 };

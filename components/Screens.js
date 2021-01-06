@@ -183,23 +183,30 @@ export const Bestellen = ({ navigation }) => {
           {/* <Image stlye={styles.tag} source={require("../assets/QR.png")} /> */}
         </View>
         <View style={styles.buttonView}>
-          <Button title="Abschicken!" onPress={() => alert("abgeschickt")} />
+          <Button
+            title="Abschicken!"
+            onPress={() => navigation.push("Home1")}
+          />
         </View>
       </ScreenContainer>
     </ScrollView>
   );
 };
 
-export const Photo = () => (
+export const Photo = ({navigation}) => (
   <ScreenContainer>
     <ImagePicker style={styles.photo} />
+    <Button
+        title="Objekt speichern"
+        color={Colors.primary}
+        onPress={() => navigation.push("Gallery1")}
+      />
   </ScreenContainer>
 );
 
 export const Gallery = () => (
   <ScreenContainer>
     <ScrollView>
-      <Text>hi there</Text>
       <GalleryItem />
     </ScrollView>
   </ScreenContainer>

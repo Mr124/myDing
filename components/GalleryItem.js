@@ -9,7 +9,9 @@ const GalleryItem = props => {
       <View style={styles.infoContainer}>
         <Text style={styles.title}>{props.title}</Text>
         <Text style={styles.address}>{props.address}</Text>
-        <Text>hi</Text>
+        <Text>Tagged Item</Text>
+        <Text></Text>
+        <Text>Further Information</Text>
       </View>
     </TouchableOpacity>
   );
